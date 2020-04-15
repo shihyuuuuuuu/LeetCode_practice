@@ -16,3 +16,6 @@ class Solution:
         for i, j in zip(sorted_idx, ans):
             real_ans[i] = j
         return real_ans
+        
+        # One line solution
+        return [*map(sorted(nums).index, nums)]
