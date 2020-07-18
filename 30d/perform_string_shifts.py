@@ -1,3 +1,4 @@
+# https://leetcode.com/explore/challenge/card/30-day-leetcoding-challenge/529/week-2/3299/
 class Solution:
     def stringShift(self, s: str, shift: List[List[int]]) -> str:
         all_shift = 0
