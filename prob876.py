@@ -1,16 +1,16 @@
 # Definition for singly-linked list.
 # class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 class Solution:
     def middleNode(self, head: ListNode) -> ListNode:
-        length = 1
-        tmp = head
-        while tmp.next != None:
-            tmp = tmp.next
-            length += 1
-        for i in range(length//2):
-            head = head.next
-        return head
+        mid = curr = head
+        counter = 1
+        while curr:
+            curr = curr.next
+            if counter == 2:
+                counter = 0
+                mid = mid.next
+            counter += 1
+        return mid
