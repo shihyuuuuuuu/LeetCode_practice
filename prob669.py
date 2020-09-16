@@ -18,3 +18,17 @@ class Solution:
             return r
         elif root.val > high:
             return l
+
+        # Can also be written like this
+        if not root:
+            return None
+        if low <= root.val <= high:
+            root.left = self.trimBST(root.left, low, high)
+            root.right = self.trimBST(root.right, low, high)
+            return root
+        elif root.val < low:
+            root = root.right
+            return self.trimBST(root, low, high)
+        elif root.val > high:
+            root = root.left
+            return self.trimBST(root, low, high)
