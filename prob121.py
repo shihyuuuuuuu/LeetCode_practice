@@ -2,14 +2,22 @@ class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         if not prices:
             return 0
-        low = high = prices[0]
-        diff = 0
+    
+        lowest = highest = prices[0]
+        profit = 0
         for i in prices[1:]:
-            if i < low:
-                low = i
-                high = i
-            elif i > high:
-                high = i
-                if high - low > diff:
-                    diff = high - low
-        return diff
+            if i < lowest:
+                lowest = highest = i
+            elif i > highest:
+                highest = i
+                profit = max(profit, highest - lowest)
+        return profit
+    
+        # Another Solution
+        profit, lowest = 0, float("inf")
+        for i in prices:
+            if i < lowest:
+                lowest = i
+            else:
+                profit = max(profit, i - lowest)
+        return profit
