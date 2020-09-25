@@ -1,4 +1,13 @@
 class Solution:
+    # Prettier
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        d = {}
+        for cnt, i in enumerate(nums):
+            if d.get(target - i, -1) != -1:
+                return [d[target-i], cnt]
+            else:
+                d[i] = cnt
+
     # Faster, more memory
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         num_dict = {}
